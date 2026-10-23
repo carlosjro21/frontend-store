@@ -1,0 +1,295 @@
+:root {
+    --primario: #9C27B0;
+    --primarioOscuro: #89119D;
+    --secundario: #FFCE00;
+    --secundarioOscuro: rgb(233, 255, 2);
+    --blanco: #FFF;
+    --negro: #000;
+
+    --fuentePrincipal: 'Staatliches', cursive;
+}
+
+/* Hace que el padding y el border se incluyan dentro del ancho y alto
+   total que definamos para los elementos. */
+html {
+    box-sizing: border-box;
+
+    /* 62.5% hace que 1rem sea aproximadamente 10px.
+       Así es más fácil trabajar con rem:
+       1.6rem = 16px, 2rem = 20px, 3rem = 30px, etc. */
+    font-size: 62.5%;
+}
+
+/* Aplica el mismo box-sizing a todos los elementos y también
+   a sus pseudo-elementos ::before y ::after. */
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/** Globales **/
+
+body {
+    /* Utilizamos la variable --primario que declaramos en :root. */
+    background-color: var(--primario);
+
+    /* Como 1rem ≈ 10px gracias al 62.5%, 1.6rem ≈ 16px. */
+    font-size: 1.6rem;
+
+    /* Altura de línea: 1.5 veces el tamaño de la fuente.
+       Mejora la separación y legibilidad del texto. */
+    line-height: 1.5;
+}
+
+/* Estilos generales para los párrafos */
+p {
+    font-size: 1.8rem;
+
+    /* Fuentes de respaldo:
+       intenta Arial, luego Helvetica y finalmente cualquier sans-serif. */
+    font-family: Arial, Helvetica, sans-serif;
+
+    /* Utilizamos la variable --blanco definida anteriormente en :root. */
+    color: var(--blanco);
+}
+
+/* Estilos generales para los enlaces */
+a {
+    /* Elimina el subrayado que los enlaces traen por defecto. */
+    text-decoration: none;
+}
+
+/* Evita que las imágenes superen el ancho de su contenedor, haciéndolas responsivas */
+img {
+    max-width: 100%;
+}
+
+/* Contenedor principal para limitar el ancho del contenido */
+.contenedor {
+    /* El contenido puede crecer hasta un máximo de 120rem (aprox. 1200px). */
+    max-width: 120rem;
+
+    /* 0 = sin margen arriba y abajo.
+       auto = reparte automáticamente el espacio a izquierda y derecha,
+       logrando centrar horizontalmente el contenedor. */
+    margin: 0 auto;
+}
+
+/* Estilos generales para los títulos h1, h2 y h3 */
+h1, h2, h3 {
+    /* Centra horizontalmente el texto de los títulos */
+    text-align: center;
+
+    /* Usa el color secundario definido anteriormente en :root */
+    color: var(--secundario);
+
+    /* Usa nuestra fuente principal definida en :root */
+    font-family: var(--fuentePrincipal);
+}
+
+/* Tamaño específico para los títulos principales */
+h1 {
+    font-size: 4rem; /* Aproximadamente 40px */
+}
+
+/* Tamaño específico para títulos secundarios */
+h2 {
+    font-size: 3.2rem; /* Aproximadamente 32px */
+}
+
+/* Tamaño específico para títulos de tercer nivel */
+h3 {
+    font-size: 2.4rem; /* Aproximadamente 24px */
+}
+
+/** Header **/
+
+.header {
+    /* Utiliza Flexbox para organizar el contenido del header */
+    display: flex;
+
+    /* Centra horizontalmente los elementos dentro del header */
+    justify-content: center;
+}
+
+.header__logo {
+    /* Agrega separación vertical al logo: 3rem arriba y abajo */
+    margin: 3rem 0;
+}
+
+/** Footer **/
+
+.footer {
+    /* Usa el mismo color oscuro de la navegación como fondo */
+    background-color: var(--primarioOscuro);
+
+    /* Agrega espacio interno arriba y abajo del footer */
+    padding: 1rem 0;
+
+    /* Separa el footer del contenido que se encuentra encima */
+    margin-top: 2rem;
+}
+
+.footer__texto {
+    /* Utiliza la fuente principal definida en :root */
+    font-family: var(--fuentePrincipal);
+
+    /* Centra el texto del footer */
+    text-align: center;
+
+    /* Define el tamaño del texto */
+    font-size: 2.2rem;
+}
+
+/** Navegación **/
+
+.navegacion {
+    /* Fondo de la barra de navegación usando nuestro primario oscuro */
+    background-color: var(--primarioOscuro);
+
+    /* Espacio interno arriba y abajo de la navegación */
+    padding: 1rem 0;
+
+    /* Coloca los enlaces uno al lado del otro usando Flexbox */
+    display: flex;
+
+    /* Centra los enlaces horizontalmente */
+    justify-content: center;
+
+    /* Deja una separación de 2rem entre cada enlace */
+    /*gap: 2rem; */
+}
+
+.navegacion__enlace {
+    /* Utiliza la fuente principal definida en :root */
+    font-family: var(--fuentePrincipal);
+
+    /* Color blanco para los enlaces */
+    color: var(--blanco);
+
+    /* Tamaño del texto de los enlaces */
+    font-size: 3rem;
+
+     /* Agrega separación a la derecha de cada enlace */
+    margin-right: 2rem;
+}
+
+/* Selecciona el último enlace y elimina su margen derecho */
+.navegacion__enlace:last-of-type {
+    margin-right: 0;
+}
+
+/* Resalta el enlace de la página activa y también al pasar el mouse */
+.navegacion__enlace--activo,
+.navegacion__enlace:hover {
+    color: var(--secundario);
+}
+
+/** Grid **/
+
+.grid {
+    /* Activa CSS Grid para organizar los productos */
+    display: grid;
+
+    /* Crea 2 columnas del mismo tamaño */
+    grid-template-columns: repeat(2, 1fr);
+
+    /* Deja una separación de 2rem entre los elementos del Grid */
+    gap: 2rem;
+}
+
+/* A partir de 768px cambiamos la distribución del Grid */
+@media (min-width: 768px) {
+    .grid {
+        /* En pantallas más grandes mostramos 3 columnas iguales */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/** Productos **/
+
+.producto {
+    /* Fondo de cada tarjeta utilizando el color primario oscuro */
+    background-color: var(--primarioOscuro);
+
+    /* Espacio interno entre el contenido y los bordes del producto */
+    padding: 1rem;
+}
+
+.producto__imagen {
+    /* La imagen ocupa todo el ancho disponible de la tarjeta */
+    width: 100%;
+}
+
+.producto__nombre {
+    /* Tamaño del nombre del producto */
+    font-size: 4rem;
+}
+
+.producto__precio {
+    /* Tamaño del precio, menor que el nombre */
+    font-size: 2.8rem;
+
+    color: var(--secundario);
+}
+
+/* Propiedades compartidas por el nombre y el precio */
+.producto__nombre,
+.producto__precio {
+    /* Ambos utilizan la fuente principal del proyecto */
+    font-family: var(--fuentePrincipal);
+
+    /* Elimina el margen que los párrafos traen por defecto
+       y deja 1rem solamente arriba y abajo */
+    margin: 1rem 0;
+
+    text-align: center;
+    line-height: 1.2;
+}
+
+/** Gráficos **/
+
+.grafico {
+    /* Asegura una altura mínima para que el gráfico sea visible */
+    min-height: 30rem;
+
+    /* Evita que la imagen de fondo se repita */
+    background-repeat: no-repeat;
+
+    /* Hace que la imagen cubra todo el espacio disponible */
+    background-size: cover;
+}
+
+/* Modificador para el gráfico de las camisas */
+.grafico--camisas {
+    /* Ocupa desde la fila 2 hasta la 3 del Grid */
+    grid-row: 2 / 3;
+
+    /* Ocupa desde la columna 1 hasta la 3 */
+    grid-column: 1 / 3;
+
+    /* Imagen de fondo específica para este gráfico */
+    background-image: url(../img/grafico1.jpg);
+}
+
+/* Modificador para el gráfico de Node */
+.grafico--node {
+    /* Imagen de fondo específica para este gráfico */
+    background-image: url(../img/grafico2.jpg);
+
+    /* Ocupa desde la columna 1 hasta la 3 */
+    grid-column: 1 / 3;
+
+    /* Ubica el gráfico entre las líneas de fila 8 y 9 */
+    grid-row: 8 / 9;
+}
+
+/* Cambios para pantallas de 768px o superiores */
+@media (min-width: 768px) {
+    .grafico--node {
+        /* En pantallas grandes se mueve entre las filas 5 y 6 */
+        grid-row: 5 / 6;
+
+        /* Ocupa desde la columna 2 hasta la 4 */
+        grid-column: 2 / 4;
+    }
+}

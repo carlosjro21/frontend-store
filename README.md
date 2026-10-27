@@ -37,6 +37,12 @@ Durante este proyecto practiqué principalmente:
 - Pseudoclases como `:hover`.
 - Transiciones en CSS.
 
+## 🌐 Ver proyecto
+
+Puedes ver el proyecto publicado en GitHub Pages:
+
+https://carlosjro21.github.io/frontend-store/
+
 ## Autor
 
 Carlos Rangel

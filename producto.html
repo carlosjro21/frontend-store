@@ -26,8 +26,50 @@
         <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
     </nav>
 
-    <main>
-        <h1>Producto</h1>
+    <main class="contenedor">
+        <h1>React JS</h1>
+
+        <!-- Contenedor principal de la camisa -->
+        <div class="camisa">
+
+            <!-- Imagen del producto -->
+            <img 
+                class="camisa__imagen" 
+                src="img/3.jpg" 
+                alt="Imagen del Producto"
+            >
+
+            <!-- Contenido e información del producto -->
+            <div class="camisa__contenido">
+
+                <!-- Descripción del producto -->
+                <p>
+                    Maecenas consectetur ultricies mi vel venenatis. Curabitur risus tellus,
+                    congue non tellus at, semper dapibus turpis. Duis pellentesque, risus sit
+                    amet placerat porttitor, tortor augue volutpat ante, non dignissim odio
+                    ligula at arcu.
+                </p>
+
+                <!-- Formulario para seleccionar talla y cantidad -->
+                <form class="formulario">
+
+                    <!-- Selector de talla -->
+                    <select class="formulario__campo">
+                        <option disabled selected>-- Seleccionar Talla --</option>
+                        <option>Chica</option>
+                        <option>Mediana</option>
+                        <option>Grande</option>
+                    </select>
+
+                    <!-- Permite ingresar la cantidad de productos -->
+                    <input class="formulario__campo formulario__campo--cantidad" type="number" placeholder="Cantidad" min="1" max="10">
+                    <input class="formulario__submit" type="submit" value="Agregar al carrito">
+
+                </form>
+
+            </div>
+
+        </div>
     </main>
 
     <footer class="footer">
